@@ -1,0 +1,185 @@
+/* -- quantity box -- */
+
+.quantity {
+ display: inline-block; 
+ min-height: 45px;
+}
+
+.quantity .input-text.qty {
+ width: 35px;
+ height: 41px;
+ padding: 0 5px;
+ text-align: center;
+ background-color: transparent;
+ border: 1px solid #cfcfcf;
+}
+
+.quantity.buttons_added {
+ text-align: left;
+ position: relative;
+ white-space: nowrap;
+ vertical-align: top; 
+}
+
+.quantity.buttons_added input {
+ display: inline-block;
+ margin: 0;
+ vertical-align: top;
+ box-shadow: none;
+}
+.quantity.buttons_added .minus {
+    margin-right: -4px;
+}
+.quantity.buttons_added .plus {
+    margin-left: -4px;
+}
+.quantity.buttons_added .minus,
+.quantity.buttons_added .plus {
+ padding: 7px 10px 8px;
+ height: 41px;
+ background-color: #ffffff;
+ border: 1px solid #cfcfcf;
+ cursor:pointer;
+}
+
+.quantity.buttons_added .minus {
+ border-right: 0; 
+}
+
+.quantity.buttons_added .plus {
+ border-left: 0; 
+}
+
+.quantity.buttons_added .minus:hover,
+.quantity.buttons_added .plus:hover {
+ background: #eeeeee; 
+}
+
+.quantity input::-webkit-outer-spin-button,
+.quantity input::-webkit-inner-spin-button {
+ -webkit-appearance: none;
+ -moz-appearance: none;
+ margin: 0; 
+}
+ 
+ .quantity.buttons_added .minus:focus,
+.quantity.buttons_added .plus:focus {
+ outline: none; 
+}
+
+.full-width {
+    width: 100%;
+}
+.heads {
+    font-size: 26px;
+    font-weight: bold;
+    background-color: #909090;
+    color: #fff;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    padding: 5px;
+}
+.slickSlider .sliderItems .checkbox-alias {
+    border: 1px solid #ccc;
+}
+.checkbox-alias h1, .checkbox-alias h2, .checkbox-alias h3 {
+    font-family: Inter,sans-serif;
+}
+.text-left {
+    text-align: left;
+}
+.btn-addCart, .btn-addCart:hover {
+    background-color: #000;
+    color: #fff;
+}
+.popUpDetails {
+    font-size: 28px;
+    color: #333;
+    font-weight: bold;
+}
+
+.popUpDiv.modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 9;
+    pointer-events: none;
+    opacity: 1;
+    overflow: hidden;
+    transition: opacity 0.2s ease-in;
+}
+.modal-backdrop .modal-content {
+    background-color: #fff;
+    max-width: 400px;
+    width: 100%;
+    min-height: 280px;
+    padding: 10px 30px;
+    position: absolute;
+    left: calc(50% - 200px);
+    top: 12%;
+    border-radius: 4px;
+    z-index: 999;
+    pointer-events: auto;
+    cursor: auto;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.6);
+}
+.modal-backdrop hr {
+    margin: 0.5rem 0px;
+}
+.modal-backdrop .modal-content .modal-close {
+    color: #666;
+    position: absolute;
+    right: 10px;
+    top: 0;
+    padding-top: 7px;
+    background: #fff;
+    font-size: 22px;
+    height: 32px;
+    width: 32px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+}
+.titleSections .btn {
+    text-transform: uppercase;
+}
+.modal-backdrop.popUpDiv h2 {
+    font-family: Inter,sans-serif;
+}
+@media (max-width: 480px) {
+    body .heads {
+        font-size: 22px;
+    }
+    .titleSections .btn {
+        font-size: 12px;
+        padding: 10px 5px;
+    }
+    .titleSections h2 {
+        font-size: 22px;
+    }
+    .titleSections h3 {
+        white-space: nowrap;
+        overflow: hidden;
+        font-size: 18px;
+    }
+    .modal-backdrop .modal-content {
+        max-width: 90% !important;
+        left: calc(10% - 5%);
+    }
+    .popUpDetails {
+        font-size: 18px;
+    }
+    .ecommerceSection .ImgSection img {
+        max-height: 120px;
+    }
+    .ecommerceSection .ImgSection {
+        min-height: 120px;
+    }
+    .ecommerceSection input[type=checkbox] {
+        width: 18px;
+        height: 18px;
+    }
+}

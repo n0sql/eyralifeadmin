@@ -1,0 +1,506 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+body{
+    overflow-x: hidden !important;
+    font-family: 'Montserrat';
+}
+body.bg-gray {
+    font-family: "Montserrat";
+    font-size: 14px;
+    /*background-color: #f3f3fe;*/
+    color: #2c3345;
+}
+body .accordion-item {
+    border: none;
+}
+.hide {
+    display: none;
+}
+body .accordion-item .totalPrices {
+    border-bottom: 1px solid rgba(0,0,0,.125);
+}
+.header-section {
+    border-bottom: 1px solid #ccc;
+}
+.text-right {
+    text-align: right;
+}
+.ImgSection {
+    position: relative;
+}
+.eCommerceList .ImgSection img {
+    max-height: 200px;
+}
+.eCommerceList .ImgSection {
+    text-align: center;
+    border: 1px solid #c0c0c0;
+}
+.eCommerceList .coupon_code_input {
+  float: left;
+  
+}
+.eCommerceList .coupon_code_btn {
+  float: right;
+}
+
+.eCommerceList {
+    padding: 0px 20px;
+}
+.ImgSection .itmQty {
+    background-color: #000;
+    color: #fff;
+    padding: 2px 6px;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 50%;
+    position: absolute;
+    right: -5px;
+    top: -5px;
+}
+.g-5 {
+    border-radius: 3px;
+    box-shadow: 0 4px 4px rgba(87,100,126,.21);
+    background-color: #fff;
+    padding: 10px 38px;
+}
+.next-tab {
+    float: right;
+}
+.ecommerceSection.topSectoin1 .col-6 {
+    margin-top: 0px;
+}
+
+.ecommerceSection .proItms {
+    width: 100%;
+}
+.ecommerceSection input[type=checkbox] {
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    margin-top: 3px;
+    position: absolute;
+    left: -10px;
+    border: 1px solid #ccc;
+}
+.ecommerceSection .checkbox-alias {
+    border: 3px solid #fff;
+    width: 100%;
+    cursor: pointer;
+}
+.topSectoin1 .titleSections {
+    min-height: 60px;
+}
+.topSectoin1 .checkbox-alias {
+    max-width: 220px;
+    margin: 0px auto;
+}
+.ecommerceSection input[type=checkbox]:checked + .checkbox-alias{
+    border: 5px solid green;
+}
+.discount-code .btn {
+    margin: 0px;
+    width: auto;
+    color: #fff;
+    height: 46.9px !important;
+    font-size: 14px;
+    border-radius: 0;
+    padding: 12px;
+    background-color: #002677 !important;
+}
+/* .btn {
+    background-color: #2490ea;
+} */
+.ecommerceSection .ImgSection {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    min-height: 200px;
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 10px 20px -20px;
+    margin-bottom: 5px;
+}
+.ecommerceSection .proItms {
+    overflow: hidden;
+}
+.ImgSection .subScribelable {
+    background: #ccc;
+    padding: 5px 40px;
+    position: absolute;
+    top: 20px;
+    right: -40px;
+    transform: rotate(45deg);
+    font-size: 12px;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#BFDC7A), to(#8EBF45));
+    color: #fff;
+    font-weight: bold;
+}
+.discount-code {
+    display: flex;
+}
+#ui-datepicker-div {
+    z-index: 999 !important;
+}
+.indexPaymentSection {
+    padding: 20px;
+}
+.priceBottomSection input[type=text],.priceBottomSection  input[type=email],.priceBottomSection input[type=tel],.priceBottomSection input[type=number], .priceBottomSection select{
+    width: 100%;
+    margin-bottom: 20px !important;
+    padding: 12px;
+    border: 1px solid #ccc !important;
+    /* color: rgb(112, 112, 112); */
+}
+.titleSections {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    min-height: 100px; 
+    background-color: #e7e8e9;  
+}
+.ecommerceSection .ImgSection img {
+    max-height: 200px;
+}
+.ecommerceSection .caption {
+    padding: 0px 10px;
+    position: relative;
+}
+.ecommerceSection .prices {
+    padding: 0px 10px;
+    color: green;
+    font-weight: 600;
+    font-size: 22px;
+}
+.ecommerceSection .shortDesc {
+    height: 80px;
+    font-size: 14px;
+    text-align: left;
+    padding: 10px;
+}
+img {
+    max-width: 100%;
+}
+.customForms .form-checkbox label {
+    margin-left: 0px;
+    margin-top: 10px;
+    position: relative;
+}
+
+body, h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
+  font-family: "Montserrat";
+}
+.customForms .form-checkbox input[type="checkbox"] {
+    display: grid;
+    grid-template-columns: 1em auto;
+    gap: 0.5em;
+    width: 1.5em;
+    height: 1.5em;
+    /* border: 0.15em solid currentColor; */
+    border-radius: 0.15em;
+    transform: translateY(-0.075em);
+    float: left;
+    margin: 10px 0.75rem;
+}
+.customForms .form-radio label {
+    margin-left: 0px;
+    position: relative;
+    padding: 1rem 0.25rem;
+}
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active {
+    border: 1px solid #00AEEF !important;
+    background: #00AEEF !important;
+}
+.register-login-form {
+    padding: 30px;
+    background-color: #fff;
+}
+.ui-widget.ui-widget-content {
+    border: 1px solid #00AEEF;
+}
+#step1 .next-tab {
+    float: none;
+}
+textarea.form-control {
+    height: auto !important;
+}
+body .btn-primary:hover {
+    color: #fff;
+}
+.btn-check:checked+.btn-primary:focus, .btn-check:active+.btn-primary:focus, .btn-primary:active:focus, .btn-primary.active:focus, .show>.btn-primary.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.25rem rgb(20 42 199 / 50%) !important;
+}
+body .btn-check:focus+.btn-primary, body .btn-primary:focus {
+    color: #000;
+    background-color: #2854a5;
+    border-color: #2854a5;
+    box-shadow: 0 0 0 0.25rem rgb(20 42 199 / 50%) !important;
+}
+body .form-control:focus {
+    box-shadow: 0 0 0 0.25rem rgb(20 42 199 / 40%) !important;
+}
+.previous-tab {
+    background-color:#efefef;
+}
+body .btn:hover {
+    color: #fff;
+}
+body .previous-tab.btn:hover {
+    color: #000;
+}
+.kbw-signature { width: 400px; height: 200px; }
+.customForms .form-radio input[type="radio"] {
+    display: grid;
+    grid-template-columns: 1em auto;
+    gap: 0.5em;
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 50%;
+    transform: translateY(-0.075em);
+    float: left;
+    margin: 1rem 0.50rem;
+}
+.customForms .form-radio input[type="radio"]:checked,
+.form-check-input:checked {
+    background: #2490ea;
+}
+.process-bar {
+    height: 20.992px;
+    position: relative;
+    border-radius: 10.5px;
+    background: #e8e8e8;
+    margin-bottom: 16px;
+}
+.process-bar span {
+    display: inline-block;
+    height: 20.992px;
+    background-color: #00AEEF;
+    border-radius: 10.5px 0 0 10.5px;
+    vertical-align: top;
+}
+
+.table.form-radio th, .table.form-radio td{
+    border:1px solid rgba(0,0,0,.25);
+    vertical-align: middle;
+}
+.table th {
+    border-bottom: none !important;
+}
+.table.form-radio thead > tr > th:nth-child(1){
+    border: none !important;
+}
+.table.form-radio td:nth-child(2),
+.table.form-radio td:nth-child(3){
+    width: 95px;
+}
+.form-check-input:checked {
+    border-color: #6cf7e6 !important;
+}
+.table.form-radio td input[type="radio"]{
+    margin: 4px 0.5rem;
+}
+.form-control{
+    font-size:14px;
+}
+.btn-primary {
+    background-color: #2490ea;
+    border-color: #24b0ea;
+}
+.with-checkout.col-70{
+    flex: 70%;
+}
+.with-checkout.col-30{
+    flex: 30%;
+    padding-top: 0px;
+    padding-right: 0px;
+}
+/*
+ *  STYLE 3
+ */
+.fancy-box {
+    max-height: 420px;
+    padding: 10px 10px;
+    text-align: left;
+}
+.fancy-scrollbar {
+    overflow-y: auto;
+}
+.fancy-scrollbar::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+}
+
+.fancy-scrollbar::-webkit-scrollbar
+{
+    width: 6px;
+    background-color: #F5F5F5;
+}
+
+.fancy-scrollbar::-webkit-scrollbar-thumb
+{
+    background-color: #000000;
+}
+
+@media (min-width: 769px) {
+    body .container-md, body .container-sm, body .container {
+        max-width: 100%;
+    }
+}
+@media (max-width: 768px) {
+    body .container, body .container-fluid, body .container-xxl, body .container-xl, body .container-lg, body .container-md, body .container-sm { 
+        padding-left: 0px;
+        padding-right: 0px;
+        overflow-x: hidden;
+    }
+    body .register-login-form {
+        padding: 30px 0px;
+    }
+    .customForms {
+        padding-left: 10px;
+        padding-right: 10px;   
+    }
+    .row.top-row {
+        margin: 0px 10px;
+    }
+    body .panel {
+        max-width: 100%;
+    }
+    body .panel-body {
+        padding: 15px 10px;
+    }
+    body .g-5 { 
+        padding: 30px 15px;
+    }
+    .indexPaymentSection{
+        padding: 30px !important;
+    }
+    body > div.wrapper.contact.mb-5 > div > div.with-checkout.float-lg.col-lg-4.wow.fadeInUp{
+        box-shadow: none !important;
+    }
+    #accordionExample > div{
+        box-shadow: rgba(87, 100, 126, 0.21) 0px 4px 4px;
+        margin: 0 10px;
+    }
+    .form-control {
+        font-size: 16px !important;
+    }
+}
+
+@media (min-width: 992px) {
+    .g-5 {
+        padding: 10px 15px 30px 30px !important;
+        margin-right: 15px !important;
+    }
+    #collapseOne {
+        padding: 20px 35px 20px 20px !important;
+    }
+    
+}
+@media (max-width: 991px) {
+    .div-form {
+        margin-bottom: 15px !important;
+        box-shadow: 0px -1px 3px rgba(87,100,126,.21) !important;
+    }
+    #collapseOne {
+        padding: 20px 30px 20px 30px !important;
+    }
+}
+@media (max-width: 1399px) {
+    .wrapper{
+        max-width: calc(100% - 60px) !important;
+    }
+}
+body:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 420px;
+    z-index: -2;
+    background: url('../Eyra Life_files/bg_pattern_blue.svg') no-repeat 50% / cover;
+}
+body:after {
+    left: 0;
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 379px;
+    width: 100%;
+    height: 42px;
+    background: url('data:image/svg+xml, %3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"%3E%3Cpath fill="white" d="M0 100 L 0 0 C 25 100 75 100 100 0 L 100 100" /%3E%3C/svg%3E') no-repeat 0 0 / 100% 42px;
+}
+.header-section {
+    border-bottom: none !important;
+}
+.topPriceBar *{
+    color: white !important;
+}
+.row {
+    --bs-gutter-x: unset;
+}
+html, body{
+    overflow-x: hidden;
+}
+footer .links a{
+    font-size: 14px;
+}
+footer{
+/*    background-color: #276af4;*/
+    padding: 15px 0 0 0;
+    background: url('../Eyra Life_files/bg_pattern_blue.svg') no-repeat 50% / cover;
+}
+footer *{
+    color: #fff !important;
+}
+body > footer > div.text-center.p-3{
+    background: #002677;
+}
+.navbar-section img{
+    filter: brightness(0) invert(1);
+}
+a{
+    text-decoration: none !important;
+}
+.accordion-item {
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,.125);
+}
+.pd-r-16{
+    padding-right: 16px !important;
+}
+.with-checkout,#collapseOne,.with-checkout .accordion-item {
+    border-radius: 3px !important;
+}
+.card-body{
+    box-shadow: 0 4px 4px rgba(87,100,126,.21);
+}
+#tblPrescriptions tbody tr  td:nth-child(7){
+    white-space: normal !important;
+    width: 300px !important;
+}
+body.thinnex::before{
+    background: url('../Eyra Life_files/bg_pattern_thinnex.svg') no-repeat 50% / cover;
+}
+body.thinnex footer{
+    background: url('../Eyra Life_files/bg_pattern_thinnex.svg') no-repeat 50% / cover;
+}
+body.thinnex > footer > div.text-center.p-3{
+    background: #58ba8a94 !important;
+}
+/* body.thinnex::before,body.thinnex footer{
+    filter: hue-rotate(281deg) !important;
+} */
+ .per-month{
+    white-space: normal;
+    word-wrap: break-word;
+    width: 40px !important;
+    display: inline-block;
+    text-align: left;
+ }
+
+ .btn.next-tab{
+    background-color: #002677;
+
+ }

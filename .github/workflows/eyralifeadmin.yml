@@ -1,0 +1,84 @@
+name: deploy eyralifeadmin
+run-name: ${{ github.actor }} is deploying ${{ github.repository }}
+on:
+    push:
+        branches: [ master ]
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Deploy using ssh
+              uses: appleboy/ssh-action@master
+              with:
+                host: ${{ secrets.HOST }}
+                username: ${{ secrets.USERNAME }}
+                key: ${{ secrets.HOST_KEY }}
+                script: |
+                    sudo apt-get update
+                    if ! command which redis-server &> /dev/null; then
+                        sudo apt-get install redis-server -y
+                        sudo sed -i -E "s/^bind .+$/bind 127.0.0.1 ::1/g" /etc/redis/redis.conf
+                        sudo sed -i -E "s/^supervised .+$/supervised systemd/g" /etc/redis/redis.conf
+                        sudo systemctl restart redis
+                    fi
+
+                    . /home/${{ secrets.USERNAME }}/.nvm/nvm.sh
+                    if [ ! command -v pm2 &> /dev/null ]; then
+                        npm install -g pm2
+                    fi
+
+                    if [ ! -d /var/www/${{ secrets.DOMAIN }} ]; then
+                        sudo mkdir -p /var/www/${{ secrets.DOMAIN }}
+                        sudo chown -R root:${{ secrets.USERNAME }} /var/www/${{ secrets.DOMAIN }}
+                        sudo chmod -R 770 /var/www/${{ secrets.DOMAIN }}
+                    fi
+
+                    if [ ! -d ~/eyralifeadmin ]; then
+                        git clone https://${{ secrets.GIT_KEY }}@github.com/n0sql/eyralifeadmin.git
+                        if [ $? -ne 0 ]; then
+                            echo "Failed to clone the repository"
+                            exit 1
+                        else
+                            cd ~/eyralifeadmin
+                        fi
+                    else
+                        cd ~/eyralifeadmin
+                        git pull
+                    fi
+                    if [ ! -f ~/eyralifeadmin/.env.local ]; then
+                        touch ~/eyralifeadmin/.env.local
+                        echo "SMTP_HOST=${{ secrets.SMTP_HOST }}" >> ~/eyralifeadmin/.env.local
+                        echo "SMTP_PORT=${{ secrets.SMTP_PORT }}" >> ~/eyralifeadmin/.env.local
+                        echo "SMTP_USERNAME=${{ secrets.SMTP_USERNAME }}" >> ~/eyralifeadmin/.env.local
+                        echo "SMTP_PASSWORD=${{ secrets.SMTP_PASSWORD }}" >> ~/eyralifeadmin/.env.local
+                        echo "SMTP_FROM=${{ secrets.SMTP_FROM }}" >> ~/eyralifeadmin/.env.local
+                        echo "MAILGUN_API=${{ secrets.MAILGUN_API }}" >> ~/eyralifeadmin/.env.local
+                        echo "DB_HOST=${{ secrets.DB_HOST }}" >> ~/eyralifeadmin/.env.local
+                        echo "DB_NAME=${{ secrets.DB_NAME }}" >> ~/eyralifeadmin/.env.local
+                        echo "DB_PASSWORD=${{ secrets.DB_PASSWORD }}" >> ~/eyralifeadmin/.env.local
+                        echo "DB_USER=${{ secrets.DB_USER }}" >> ~/eyralifeadmin/.env.local
+                        echo "DB_PORT=${{ secrets.DB_PORT }}" >> ~/eyralifeadmin/.env.local
+                        echo "NODE_ENV=${{ secrets.NODE_ENV }}" >> ~/eyralifeadmin/.env.local
+                    fi
+
+                    npm install
+                    npm run build
+                    if [ $? -ne 0 ]; then
+                        echo "Failed to build the project"
+                        exit 1
+                    fi
+
+                    if [ ! -d /var/www/${{ secrets.DOMAIN }} ]; then
+                        echo "Failed to create the directory"
+                        exit 1
+                    fi
+
+                    cp -ru ~/eyralifeadmin/{package.json,next.config.js,public,.next,node_modules,.env.local} /var/www/${{ secrets.DOMAIN }}
+ 
+                    cd /var/www/${{ secrets.DOMAIN }}
+                    if pm2 ls | grep -qw '\s${{ secrets.DOMAIN }}'; then
+                        pm2 reload ${{ secrets.DOMAIN }} --time --update-env
+                    else
+                        pm2 start npm --name "${{ secrets.DOMAIN }}" -- start --time
+                        pm2 save
+                    fi
