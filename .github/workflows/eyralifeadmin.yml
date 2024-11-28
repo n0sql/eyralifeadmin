@@ -78,6 +78,7 @@ jobs:
                     cd /var/www/${{ secrets.DOMAIN }}
                     if pm2 ls | grep -qw '\s${{ secrets.DOMAIN }}'; then
                         pm2 reload ${{ secrets.DOMAIN }} --time --update-env
+                        pm2 save
                     else
                         pm2 start npm --name "${{ secrets.DOMAIN }}" -- start --time
                         pm2 save
