@@ -93,6 +93,9 @@ export async function get_user_by_username(username: string){
 };
 
 export async function get_user_by_email(email:string){
+    await create_user_table();
+    await create_user_session_table();
+    await create_contact_table();
     const conn = await pool.getConnection();
     try {
         const [users] = await conn.query<User[]>(`SELECT * FROM user WHERE email = ?`, [email]);
