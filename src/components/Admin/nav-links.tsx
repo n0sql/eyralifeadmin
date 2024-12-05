@@ -6,6 +6,7 @@ import {
   UserPlusIcon,
   HandRaisedIcon,
   DocumentDuplicateIcon,
+  EnvelopeOpenIcon
   
 } from '@heroicons/react/24/outline';
 import Link from 'next/link';
@@ -19,7 +20,7 @@ const links = [
   {
     name: 'Contact Form',
     href: '/contact-form',
-    icon: HandRaisedIcon,
+    icon: EnvelopeOpenIcon,
   },
   { name: 'Semaglutide Orders',
     href: '/orders', icon: UserPlusIcon, },

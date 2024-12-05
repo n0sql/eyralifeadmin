@@ -10,13 +10,12 @@ import { logoutUser } from "@/app/actions/auth";
 import { PowerIcon } from "@heroicons/react/24/outline";
 
 export default function SideNav({isAuthenticated}: {isAuthenticated: boolean}) {
- 
     const segment = useSelectedLayoutSegment();
     return(
       <div className="fixed right-0 left-0 md:w-64 z-[1000]"> 
       <div className="flex md:h-screen bg-black   py-6 items-center md:flex-col px-3  md:px-2">
       <Link
-        className="mb-2 flex h-16 items-end justify-start rounded-md bg-gray-200 p-4 md:h-40"
+        className="mb-2 flex h-16 items-end justify-start rounded-md bg-gray-100 p-4 md:h-40"
         href="/"
       >
         <div className="w-24 text-white md:w-40">

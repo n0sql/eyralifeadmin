@@ -161,7 +161,7 @@ export async function get_user_count(){
   
 };
 
-export async function approveUser(email:string){
+export async function toggleApproval(email:string): Promise<void>{
     const conn = await pool.getConnection();
     try {
         // we need to set the opposite of what is currently 

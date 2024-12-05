@@ -1,10 +1,10 @@
 'use client';
-import {  approveUser } from "@/lib/users";
+import {  toggleApproval } from "@/lib/users";
 export const ApproveUserButton  = ({ email, isApproved }:{ email:string, isApproved:Boolean}) =>{
     return (
 
        <button
-              onClick={()=>approveUser(email)}
+              onClick={()=>toggleApproval(email)}
        className="text-primary hover:text-teal-900"
        >
               {
