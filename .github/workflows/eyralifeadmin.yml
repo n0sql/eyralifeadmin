@@ -43,6 +43,7 @@ jobs:
                         fi
                     else
                         cd ~/eyralifeadmin
+                        git fetch
                         git pull
                     fi
                     if [ ! -f ~/eyralifeadmin/.env.local ]; then

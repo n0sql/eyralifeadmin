@@ -50,7 +50,7 @@ const DoctorsTable = async({
                                     <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">{_message.phone}</td>
                                     <td className="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">{_message.message}</td>
 
-                                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">{new Date(_message.submittedAt).toISOString().replace('.000Z','')}</td>
+                                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">{new Date(_message.created_at).toISOString().replace('.000Z','')}</td>
     
                                     <td className="py-4 px-6 text-sm font-medium text-right whitespace-nowrap">
 
