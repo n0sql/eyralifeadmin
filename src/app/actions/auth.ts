@@ -34,9 +34,9 @@ export const loginUser = async (prevState: any, formData: FormData) => {
         if(user === null || user === undefined){
             return {message: 'User not found'};
         };
-        // if (!user.isApproved){
-        //     return {message: 'User not approved, please contact your administrator'};
-        // };
+        if (!user.isApproved){
+            return {message: 'User not approved, please contact your administrator'};
+        };
         const match = await bcrypt.compare(password, user.password);
         if(match){
            await createSession(user.id);
