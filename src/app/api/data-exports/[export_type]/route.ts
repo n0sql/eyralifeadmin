@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 const exportTypeToTable = {
     'contact_form': 'messages',
-    'semaglutide_orders': 'semaglutide_orders',
+    // 'semaglutide_orders': 'semaglutide_orders',
     'user': 'user',
 };
 

@@ -1,6 +1,6 @@
 
 import { get_filtered_semaglutide_order } from "@/lib/data";
-
+import { seed_semaglutide_odt_orders } from "@/lib/seed";
 const OnBoardingTable = async({
     query,
     currentPage,
@@ -9,7 +9,7 @@ const OnBoardingTable = async({
     currentPage: number;
   }) => {
         const doctors = await get_filtered_semaglutide_order(query, currentPage);
-        
+        await seed_semaglutide_odt_orders();
     return(
    <div className="flex flex-col">
 <div className="overflow-x-auto shadow-md sm:rounded-lg">
@@ -20,7 +20,7 @@ const OnBoardingTable = async({
                     <tr>
                 
                         {
-                            doctors[0] && Object.keys(doctors[0]).map((key:any)=>{
+                            doctors[0] && Object.keys(doctors[0]?.profile_info).map((key:any)=>{
                                 return <th scope="col" key={key} className="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
                                     {key}
                                 </th>
@@ -31,26 +31,22 @@ const OnBoardingTable = async({
                     </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
-                
                     {
                             doctors.map((doctor:any, index: number)=>{
                                  return (<tr key={index} className="hover:bg-gray-100 dark:hover:bg-gray-700">
                                     
                                     {
-                                        Object.keys(doctor).map((key:any)=>{
-                                            if (key === 'submission'){
-                                                delete doctor[key]
-                                            }
+                                        Object.keys(doctor?.profile_info).map((key:any)=>{
                                             if (key === 'signature'){
                                                 return <td key={key} className="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">
-                                                    <img src={decodeURIComponent(doctor['signature'])} alt="signature" className="h-10 w-20"/>
+                                                    <img src={decodeURIComponent(doctor?.profile_info['signature'])} alt="signature" className="h-10 w-20"/>
                                                 </td>}
                                                 else if(key === 'date_of_birth' || key === 'created_at'){
                                                     return <td key={key} className="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">
-                                                        {new Date(doctor[key as keyof typeof doctor]).toISOString().replace('.000Z','')}
+                                                        {new Date(doctor?.profile_info[key as keyof typeof doctor.profile_info]).toISOString().replace('.000Z','')}
                                                     </td>
                                                 } else{
-                                                    return <td key={key} className="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">{doctor[key as keyof typeof doctor]}</td>
+                                                    return <td key={key} className="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">{doctor?.profile_info[key as keyof typeof doctor.profile_info]}</td>
                                                 }
                                         })
                                     }

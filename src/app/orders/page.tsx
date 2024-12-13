@@ -24,9 +24,9 @@ async function OrdersPageComponent({query, page}: {query: string; page: number})
       />
      
             <div className="relative mb-6"><Search placeholder='search table'/></div>
-            <div className='mb-3' >
+            {/* <div className='mb-3' >
       <DownloadXLSFile export_type='semaglutide_orders'/>
-      </div>
+      </div> */}
             <Suspense key={query + currentPage} fallback={<TableSkeleton/>}>
             <OnBoardingTable query={query} currentPage={currentPage}/>
             </Suspense>
