@@ -11,6 +11,7 @@ export const DownloadXLSFile = ( {export_type}: {export_type: string}) => {
         const response = await fetch(`/api/data-exports/${export_type}`);
         if (!response.ok) {
            alert('Failed to process export');
+           return;
         }
         const data = await response.blob();
         console.log(data);

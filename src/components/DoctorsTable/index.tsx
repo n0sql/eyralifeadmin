@@ -1,7 +1,7 @@
 
 import { get_filtered_messages} from "@/lib/data";
 import { DeleteTableEntryButton } from "./DeleteButton";
-
+import ContactFormMessage from "./MessageDetails";
 const DoctorsTable = async({
     query,
     currentPage,
@@ -27,13 +27,13 @@ const DoctorsTable = async({
                         <th scope="col" className="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
                             phone
                         </th>
-                        <th scope="col" className="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
-                            message
-                        </th>
+                       
                         <th scope="col" className="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
                             date
                         </th>
-              
+                        <th scope="col" className="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                            view
+                        </th>
                         <th scope="col" className="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
                             Delete
                         </th>
@@ -48,10 +48,12 @@ const DoctorsTable = async({
                                     <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">{_message.name}</td> 
                                     <td className="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">{_message.email}</td>
                                     <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">{_message.phone}</td>
-                                    <td className="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">{_message.message}</td>
+                                   
+                                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">{new Date(_message.created_at).toISOString().replace('.000Z','').split('T').join(' ')}</td>
+                                    <td className="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">
+                                        <ContactFormMessage data={_message}/>
+                                    </td>
 
-                                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">{new Date(_message.created_at).toISOString().replace('.000Z','')}</td>
-    
                                     <td className="py-4 px-6 text-sm font-medium text-right whitespace-nowrap">
 
                                         <DeleteTableEntryButton email={_message.email} />

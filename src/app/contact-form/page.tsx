@@ -20,7 +20,7 @@ async function ContactResponseComponent({query, page}: {query: string; page: num
     <Search placeholder='search table'/>
     </div>
     <div className='mb-3' >
-      <DownloadXLSFile export_type='learn_more_form'/>
+      <DownloadXLSFile export_type='contact_form'/>
       </div>
     <Suspense key={query + currentPage} fallback={<TableSkeleton/>}>
     
