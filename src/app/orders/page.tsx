@@ -6,7 +6,7 @@ import Pagination from '@/components/Pagination';
 import {  get_semaglutide_order_count } from '@/lib/data';
 import SectionTitle from '@/components/Common/SectionTitle';
 import {DownloadXLSFile} from '@/components/DownloadXls';
-import { getCurrentSession } from '@/app/actions/auth';
+import { getCurrentSession } from '@/lib/session';
 import { redirect } from 'next/navigation';
 
 

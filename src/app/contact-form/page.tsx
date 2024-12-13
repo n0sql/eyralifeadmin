@@ -6,7 +6,7 @@ import Pagination from '@/components/Pagination';
 import { get_message_count } from '@/lib/data';
 import AdminPageComponent from '@/components/Admin';
 import {DownloadXLSFile} from '@/components/DownloadXls';
-import { getCurrentSession } from '@/app/actions/auth';
+import { getCurrentSession } from '@/lib/session';
 import { redirect } from 'next/navigation';
 
 async function ContactResponseComponent({query, page}: {query: string; page: number}) {

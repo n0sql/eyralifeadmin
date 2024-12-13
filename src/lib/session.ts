@@ -1,3 +1,4 @@
+import { cache } from 'react'
 import 'server-only';
 import {pool} from './db';
 import {add_user_session, new_user_session_table, validate_session_query } from './sql_queries';
@@ -8,6 +9,7 @@ import {cookies} from 'next/headers'
 import { redirect } from 'next/navigation';
 import { revalidatePath } from 'next/cache';
 import { RowDataPacket } from 'mysql2';
+
 export interface Session{
     id: string;
     user_id: number;
@@ -154,3 +156,16 @@ export async function deleteSession(token?: string | null ): Promise<void> {
         pool.releaseConnection(conn);
     }
 };
+
+
+
+export const getCurrentSession = cache(async () => {
+    const cookieStore = cookies();
+    const token = cookieStore.get('session')?.value ?? null;
+    if( token === null ){
+    return {session: null, user: null}
+    }
+    const {session, user} = await validateSessionToken(token);
+    return {session, user};
+});
+

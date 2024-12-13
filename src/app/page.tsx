@@ -4,7 +4,7 @@ import CardWrapper from '@/components/Admin/cards';
 import { CardsSkeleton, LatestEntrysSkeleton } from '@/components/Admin/admin-skeletons';
 import LatestEntrys from '@/components/Admin/latest-entries';
 import LatestOnboarding from '@/components/Admin/latest-dashboard';
-import { getCurrentSession } from '@/app/actions/auth';
+import { getCurrentSession } from '@/lib/session';
 
 
 async function AdminPageComponent() {

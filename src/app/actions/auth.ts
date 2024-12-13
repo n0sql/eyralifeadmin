@@ -87,14 +87,14 @@ export const changePassword = async (prevState: any, formData: FormData) => {
     }
 };
 
-export const getCurrentSession = cache(async () => {
-        const cookieStore = cookies();
-        const token = cookieStore.get('session')?.value ?? null;
-        if( token === null ){
-        return {session: null, user: null}
-        }
-        const {session, user} = await validateSessionToken(token);
-        return {session, user};
-});
+// export const getCurrentSession = cache(async () => {
+//         const cookieStore = cookies();
+//         const token = cookieStore.get('session')?.value ?? null;
+//         if( token === null ){
+//         return {session: null, user: null}
+//         }
+//         const {session, user} = await validateSessionToken(token);
+//         return {session, user};
+// });
 
 

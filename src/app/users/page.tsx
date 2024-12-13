@@ -6,7 +6,7 @@ import TableSkeleton from '@/components/DoctorsTable/TableSkeleton';
 import SectionTitle from '@/components/Common/SectionTitle';
 import { get_user_count } from '@/lib/users';
 import {DownloadXLSFile} from '@/components/DownloadXls';
-import { getCurrentSession } from '../actions/auth';
+import { getCurrentSession } from '@/lib/session';
 import { redirect } from 'next/navigation';
 
 
