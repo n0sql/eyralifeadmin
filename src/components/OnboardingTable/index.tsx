@@ -1,6 +1,6 @@
 
 import { get_filtered_semaglutide_order } from "@/lib/data";
-import { seed_semaglutide_odt_orders } from "@/lib/seed";
+
 const OnBoardingTable = async({
     query,
     currentPage,
@@ -9,7 +9,6 @@ const OnBoardingTable = async({
     currentPage: number;
   }) => {
         const doctors = await get_filtered_semaglutide_order(query, currentPage);
-        await seed_semaglutide_odt_orders();
     return(
    <div className="flex flex-col">
 <div className="overflow-x-auto shadow-md sm:rounded-lg">

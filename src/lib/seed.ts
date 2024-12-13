@@ -26,7 +26,6 @@ export async function seed_semaglutide_odt_orders(){
                 status: row[3],
                 created_at: row[4]
             };
-            console.log(result_a);
             await insert_semaglutide_odt_data(result_a);
         });
     }   
