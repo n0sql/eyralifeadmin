@@ -17,7 +17,7 @@ export async function seed_semaglutide_odt_orders(){
     try {
         const [rows] = await conn.execute<SemaglutideOrder[]>({sql: old_semaglutide_data, rowsAsArray: true});
          rows.map(async (row: any, index:number) => {
-            const result_a = {
+            let result_a = {
                 internal_id: row[0],
                 agent_id: row[1],
                 transaction_details: row[2].transaction_details,
